@@ -273,6 +273,21 @@ body{font-family:var(--font-body);background:#0a120c;color:#eef0ea}
 .app-landcloud .app-emblem svg path:nth-of-type(2){transform-box:fill-box;transform-origin:center;animation:cardl-breathe 3.2s ease-in-out infinite}
 @media(prefers-reduced-motion:reduce){.app-card .app-emblem svg *{animation:none!important}}.app-analytics.is-locked .lock-badge{border-color:rgba(106,168,255,.55);color:#6aa8ff}.app-analytics.is-locked .app-go{background:#6aa8ff;color:#0a120c;border:1px solid #6aa8ff}.app-analytics.is-locked:hover .app-go{background:#83b8ff;border-color:#83b8ff;box-shadow:0 8px 24px rgba(106,168,255,.4)}.app-analytics.is-pending .app-status{background:rgba(216,180,106,.16);color:#d8b46a;border-color:rgba(216,180,106,.34)}.app-analytics.is-pending .lock-badge{border-color:rgba(216,180,106,.5);color:#d8b46a}.app-analytics.is-pending .pend-note{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:#d8b46a;padding:9px 2px}
 @media(max-width:760px){.app-grid{grid-template-columns:1fr;gap:14px}.app-card{min-height:0;padding:20px}}
+/* --- daloshq.com move notice (additive; auto-expires 1 week after first view on the new domain) --- */
+.mv-notice{width:100%;max-width:400px;margin:0 auto 16px;display:flex;flex-direction:column;text-align:center;background:linear-gradient(180deg,rgba(111,193,145,.13),rgba(177,140,240,.07));border:1px solid rgba(143,224,173,.32);border-radius:16px;padding:18px 18px 16px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 18px 45px rgba(0,0,0,.4);animation:mv-rise .6s cubic-bezier(.3,1.4,.5,1) both}
+@keyframes mv-rise{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.mv-eyebrow{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#caa86a;margin-bottom:7px}
+.mv-h{margin:0;font-family:var(--font-display);font-size:23px;line-height:1.14;background:linear-gradient(120deg,#8fe0ad,#b18cf0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mv-sub{margin:7px 0 0;font-size:12.5px;color:#cde0d3;line-height:1.45;opacity:.9}
+.mv-urlrow{display:flex;align-items:center;gap:8px;justify-content:space-between;margin-top:14px;background:rgba(0,0,0,.3);border:1px solid rgba(143,224,173,.34);border-radius:11px;padding:8px 8px 8px 13px}
+.mv-url{font-family:var(--font-mono);font-size:13px;color:#8fe0ad;text-decoration:none;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mv-copy{border:none;cursor:pointer;font-family:var(--font-body);font-weight:600;font-size:12px;color:#0a120c;background:linear-gradient(135deg,#6fc191,#8fe0ad);border-radius:8px;padding:8px 12px;white-space:nowrap;transition:transform .15s}
+.mv-copy:active{transform:scale(.95)}
+.mv-tip{display:flex;align-items:center;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px;font-size:12px;color:#cde0d3}
+.mv-kbd{font-family:var(--font-mono);font-size:11.5px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-bottom-width:2px;border-radius:6px;padding:2px 7px;color:#eaf6ee;white-space:nowrap}
+.mv-ph{color:#8fe0ad;font-weight:600}
+#mvConfetti{position:fixed;inset:0;z-index:3;pointer-events:none}
+@media(prefers-reduced-motion:reduce){.mv-notice{animation:none}}
 </style>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMwYjE1MTAiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3LjAwMCwzOC42MjEpIHNjYWxlKDAuMDE4OTE4LC0wLjAxODkxOCkiPjxwYXRoIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsMCkiIGQ9Ik0yMiAwVjEwTDQzIDE4UTc1IDMxIDc1IDY5VjU5MVE3NSA2MzEgNDMgNjQyTDIyIDY1MFY2NjBIMjg2UTM5MiA2NjAgNDY4LjUgNjIwLjVRNTQ1IDU4MSA1ODYuNSA1MDcuNVE2MjggNDM0IDYyOCAzMzFRNjI4IDIyNiA1ODMuMCAxNTIuMFE1MzggNzggNDU3LjUgMzkuMFEzNzcgMCAyNjggMFpNMjI1IDIwSDI2OFEzNDAgMjAgMzg0LjAgNDguNVE0MjggNzcgNDQ4LjUgMTQ0LjVRNDY5IDIxMiA0NjkgMzMwUTQ2OSA0NDggNDQ4LjUgNTE1LjVRNDI4IDU4MyAzODUuMCA2MTEuNVEzNDIgNjQwIDI3MiA2NDBIMjI1WiIgZmlsbD0iI2ZmZmZmZiIvPjxwYXRoIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY0OCwwKSIgZD0iTTE2NiAtMTVRMTA4IC0xNSA2OC41IDE4LjBRMjkgNTEgMjkgMTEzUTI5IDE2MCA3Ny4wIDE5OS41UTEyNSAyMzkgMjI4IDI1OVEyNDQgMjYyIDI2NC4wIDI2NS41UTI4NCAyNjkgMzA2IDI3M1YzNTJRMzA2IDQyMCAyODkuNSA0NDcuNVEyNzMgNDc1IDIzOCA0NzVRMjE0IDQ3NSAyMDAuMCA0NTkuNVExODYgNDQ0IDE4MiA0MDZMMTgwIDM5NVExNzggMzUyIDE1OS4wIDMzMi4wUTE0MCAzMTIgMTEyIDMxMlE4NiAzMTIgNjkuMCAzMjguMFE1MiAzNDQgNTIgMzcxUTUyIDQxMiA4MC41IDQ0MC4wUTEwOSA0NjggMTU2LjAgNDgyLjBRMjAzIDQ5NiAyNTggNDk2UTM0NyA0OTYgMzk1LjUgNDUyLjVRNDQ0IDQwOSA0NDQgMzExVjkwUTQ0NCA0NSA0ODYgNDVINTA4TDUxNyAzN1E0OTggMTMgNDc1LjUgMC4wUTQ1MyAtMTMgNDEyIC0xM1EzNjggLTEzIDM0Mi41IDcuNVEzMTcgMjggMzA5IDYyUTI3OSAzMCAyNDcuNSA3LjVRMjE2IC0xNSAxNjYgLTE1Wk0yMjcgNDZRMjQ3IDQ2IDI2NC41IDU1LjVRMjgyIDY1IDMwNiA4NVYyNTNRMjk2IDI1MSAyODYuMCAyNDkuMFEyNzYgMjQ3IDI2MyAyNDVRMjE3IDIzMyAxODkuNSAyMDQuNVExNjIgMTc2IDE2MiAxMjhRMTYyIDg3IDE4MS4wIDY2LjVRMjAwIDQ2IDIyNyA0NloiIGZpbGw9IiNmZmZmZmYiLz48cGF0aCB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTY2LDApIiBkPSJNMjMgMFYxMEwzNSAxNFE3MSAyNiA3MSA2NFY1OTlRNzEgNjE5IDYzLjAgNjI5LjVRNTUgNjQwIDM1IDY0NUwyMiA2NDhWNjU4TDIwNSA3MDFMMjE3IDY5MkwyMTMgNTUyVjIxMFEyMTMgMTczIDIxMy41IDEzNi41UTIxNCAxMDAgMjE0IDY0UTIxNCA0NCAyMjIuMCAzMS41UTIzMCAxOSAyNDkgMTNMMjYyIDEwVjBaIiBmaWxsPSIjZmZmZmZmIi8+PHBhdGggdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQ1MiwwKSIgZD0iTTMzNSAtMThRMjc0IC0xOCAyMTcuNSA0LjBRMTYxIDI2IDExNi41IDY5LjVRNzIgMTEzIDQ2LjAgMTc4LjBRMjAgMjQzIDIwIDMzMFEyMCA0MTYgNDYuMCA0ODEuMFE3MiA1NDYgMTE3LjAgNTg5LjVRMTYyIDYzMyAyMTguNSA2NTUuNVEyNzUgNjc4IDMzNSA2NzhRMzk2IDY3OCA0NTIuNSA2NTYuNVE1MDkgNjM1IDU1My41IDU5MS41UTU5OCA1NDggNjI0LjAgNDgyLjVRNjUwIDQxNyA2NTAgMzMwUTY1MCAyNDUgNjI0LjAgMTc5LjVRNTk4IDExNCA1NTMuNSA3MC41UTUwOSAyNyA0NTIuNSA0LjVRMzk2IC0xOCAzMzUgLTE4Wk0zMzUgM1EzOTAgMyA0MjQuMCAzMi41UTQ1OCA2MiA0NzMuNSAxMzMuNVE0ODkgMjA1IDQ4OSAzMzBRNDg5IDQ1NiA0NzMuNSA1MjcuNVE0NTggNTk5IDQyNC4wIDYyOC41UTM5MCA2NTggMzM1IDY1OFEyODEgNjU4IDI0Ny4wIDYyOC41UTIxMyA1OTkgMTk3LjUgNTI3LjVRMTgyIDQ1NiAxODIgMzMwUTE4MiAyMDUgMTk3LjUgMTMzLjVRMjEzIDYyIDI0Ny4wIDMyLjVRMjgxIDMgMzM1IDNaIiBmaWxsPSIjNmZjMTkxIi8+PHBhdGggdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjEyMiwwKSIgZD0iTTIzNyAtMThRMTgyIC0xOCAxMjUuMCAtNC41UTY4IDkgMzAgMzFMMzUgMTY3SDQ1TDc2IDEwMlE5MCA3NCAxMDYuMCA1Mi41UTEyMiAzMSAxNTAgMTlRMTcwIDkgMTg4LjUgNS41UTIwNyAyIDIzMCAyUTI5MSAyIDMyNi41IDM1LjBRMzYyIDY4IDM2MiAxMjBRMzYyIDE2OSAzMzguMCAxOTYuNVEzMTQgMjI0IDI2MSAyNTBMMjIwIDI2OFExMzQgMzA2IDg1LjUgMzU1LjVRMzcgNDA1IDM3IDQ4N1EzNyA1NDYgNjcuNSA1ODkuMFE5OCA2MzIgMTUyLjUgNjU1LjBRMjA3IDY3OCAyODAgNjc4UTMzMyA2NzggMzgwLjUgNjY0LjBRNDI4IDY1MCA0NjMgNjI2TDQ1NyA1MDZINDQ3TDQwNiA1ODFRMzg5IDYxNiAzNzIuMCA2MzAuNVEzNTUgNjQ1IDMzMyA2NTFRMzIwIDY1NSAzMDkuMCA2NTYuNVEyOTggNjU4IDI4MSA2NThRMjMwIDY1OCAxOTUuMCA2MjguNVExNjAgNTk5IDE2MCA1NDlRMTYwIDQ5OCAxODcuMCA0NjcuNVEyMTQgNDM3IDI2NiA0MTNMMzEyIDM5M1E0MDggMzUxIDQ1MC4wIDMwMy41UTQ5MiAyNTYgNDkyIDE4MVE0OTIgOTMgNDI1LjUgMzcuNVEzNTkgLTE4IDIzNyAtMThaIiBmaWxsPSIjNmZjMTkxIi8+PC9nPjwvc3ZnPg=="/>
 </head>
@@ -301,6 +316,16 @@ body{font-family:var(--font-body);background:#0a120c;color:#eef0ea}
   <div style="text-align:center">
     <div style="font-family:var(--font-display);font-size:40px;margin-bottom:6px;letter-spacing:-1px;color:#f4f1e8">Dal<span style="color:#6fc191">OS</span> <span style="color:#7d9d88;font-size:30px">Workspace</span></div>
     <div style="font-size:10px;font-weight:600;letter-spacing:.18em;color:#caa86a;text-transform:uppercase;margin-bottom:34px">Daltex Agricultural Operations</div>
+  </div>
+  <div class="mv-notice" id="mvNotice" style="display:none">
+    <div class="mv-eyebrow">&#127881; We&rsquo;ve moved</div>
+    <h2 class="mv-h">Welcome to the new home of DalOS</h2>
+    <div class="mv-sub">Same platform, a fresh address. Save it and sign in to pick up right where you left off.</div>
+    <div class="mv-urlrow">
+      <a class="mv-url" id="mvUrl" href="https://daloshq.com/dalos-workspace/">daloshq.com/dalos-workspace</a>
+      <button class="mv-copy" id="mvCopy" type="button">Copy link</button>
+    </div>
+    <div class="mv-tip" id="mvTip"></div>
   </div>
   <div id="lcard" class="dlogin-card-in" style="width:100%;max-width:400px;background:rgba(255,255,255,.055);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.12);border-radius:20px;box-shadow:0 30px 80px rgba(0,0,0,0.5);padding:34px 32px">
     <div id="signinForm">
@@ -674,6 +699,36 @@ if(DALOS_LINK.type==='invite'||DALOS_LINK.type==='recovery'){
     else{showLogin();}
   }).catch(function(){showLogin();});
 }
+</script>
+<script>
+/* daloshq.com move notice — additive, self-contained. Shows only on the new domain,
+   auto-expires 7 days after a user's first view there. Remove this block once retired. */
+(function(){
+  if(location.hostname!=='daloshq.com') return;              // only on the new home
+  var KEY='dalos_move_seen', WEEK=6048e5;                    // 7 days in ms
+  var seen=+localStorage.getItem(KEY)||0;
+  if(!seen){seen=Date.now();try{localStorage.setItem(KEY,String(seen));}catch(e){}}
+  if(Date.now()-seen>=WEEK) return;                          // auto-expire after a week
+  var n=document.getElementById('mvNotice'); if(!n) return;
+  n.style.display='flex';
+  var ua=navigator.userAgent, plat=navigator.platform||'';
+  var isIOS=/iPad|iPhone|iPod/.test(ua)||(plat==='MacIntel'&&navigator.maxTouchPoints>1);
+  var isAndroid=/Android/.test(ua), isMac=/Mac/.test(plat)&&!isIOS;
+  var tip=document.getElementById('mvTip'), h;
+  if(isIOS) h='Tap <span class="mv-kbd">Share ↑</span> then <span class="mv-ph">Add to Home Screen</span>';
+  else if(isAndroid) h='Tap <span class="mv-kbd">&#8942; Menu</span> then <span class="mv-ph">Add to Home screen</span>';
+  else if(isMac) h='Press <span class="mv-kbd">⌘ D</span> to bookmark this page';
+  else h='Press <span class="mv-kbd">Ctrl D</span> to bookmark this page';
+  if(tip) tip.innerHTML=h;
+  var WS='https://daloshq.com/dalos-workspace/', b=document.getElementById('mvCopy');
+  if(b) b.addEventListener('click',function(){try{navigator.clipboard&&navigator.clipboard.writeText(WS);}catch(e){}var o=b.textContent;b.textContent='Copied ✓';setTimeout(function(){b.textContent=o;},1600);});
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var c=document.createElement('canvas'); c.id='mvConfetti'; document.body.appendChild(c);
+  var x=c.getContext('2d'), W, H, parts=[], cols=['#8fe0ad','#6fc191','#e7c778','#b18cf0','#cde0d3'];
+  function sz(){W=c.width=innerWidth; H=c.height=innerHeight;} sz(); addEventListener('resize',sz);
+  for(var i=0;i<120;i++) parts.push({x:W*(.2+Math.random()*.6),y:-20-Math.random()*H*.3,vx:(Math.random()-.5)*2.2,vy:2+Math.random()*3.2,s:5+Math.random()*6,rot:Math.random()*6.28,vr:(Math.random()-.5)*.3,col:cols[(Math.random()*cols.length)|0],life:1});
+  var f=0;(function tick(){x.clearRect(0,0,W,H);var a=0;for(var i=0;i<parts.length;i++){var p=parts[i];p.vy+=.03;p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;if(p.y>H*.62)p.life-=.02;if(p.life>0&&p.y<H+40){a++;x.save();x.globalAlpha=Math.max(0,p.life);x.translate(p.x,p.y);x.rotate(p.rot);x.fillStyle=p.col;x.fillRect(-p.s/2,-p.s/2,p.s,p.s*.62);x.restore();}}f++;if(a>0&&f<420)requestAnimationFrame(tick);else{x.clearRect(0,0,W,H);if(c.parentNode)c.parentNode.removeChild(c);}})();
+})();
 </script>
 </body>
 </html>
