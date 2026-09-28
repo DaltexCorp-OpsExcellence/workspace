@@ -211,15 +211,6 @@ body{font-family:var(--font-body);background:#0a120c;color:#eef0ea}
 .app-commercial.is-locked .app-chip{opacity:.55}
 .app-commercial.is-locked .app-emblem{filter:none}
 .app-commercial.is-locked .lock-badge{border-color:rgba(139,148,163,.55);color:#aab3c0}
-.app-commercial.is-soon{--ac:#8b94a3;background:linear-gradient(162deg,rgba(120,80,180,.14),rgba(16,10,26,.55));border-color:rgba(139,148,163,.24)}
-.app-commercial.is-soon .app-name{color:#cdd3dc}
-.app-commercial.is-soon .app-tag{color:rgba(244,241,232,.42)}
-.app-commercial.is-soon .app-chip{opacity:.5}
-.app-commercial.is-soon .app-emblem{opacity:.55;filter:grayscale(.35)}
-.app-commercial.is-soon .app-emblem svg *{animation:none!important}
-.app-commercial.is-soon .app-status{background:rgba(216,180,106,.16);color:#d8b46a;border-color:rgba(216,180,106,.34)}
-.app-commercial.is-soon .lock-badge{border-color:rgba(216,180,106,.5);color:#d8b46a}
-.app-commercial .soon-note{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:#d8b46a;padding:9px 2px}
 .app-landcloud{--ac:#33cfe0;background:linear-gradient(162deg,rgba(22,132,150,.34),rgba(8,20,24,.58));border-color:rgba(51,207,224,.30);animation-delay:.28s}
 .app-landcloud.is-locked{--ac:#8b94a3}
 .app-landcloud.is-locked .app-name{color:#cdd3dc}
@@ -389,15 +380,15 @@ body{font-family:var(--font-body);background:#0a120c;color:#eef0ea}
         <div class="app-chips"><span class="app-chip">Markets</span><span class="app-chip">Farms</span><span class="app-chip">Varieties</span><span class="app-chip">Clients</span><span class="app-chip">Cartons</span><span class="app-chip">Explorer</span></div>
         <div class="app-foot"><span class="app-go">Open Analytics <b>→</b></span></div>
       </div>
-      <div class="app-card app-commercial is-soon" id="tileCommercial" style="cursor:default">
+      <div class="app-card app-commercial" id="tileCommercial">
         <div class="app-glow"></div><div class="app-sheen"></div>
         <div class="app-watermark"><svg viewBox="0 0 64 64" width="100%" height="100%" fill="none"><path d="M11 44 L25 36 L37 40 L53 17" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/><g fill="currentColor" opacity=".55"><circle cx="11" cy="44" r="2.6"/><circle cx="25" cy="36" r="2.6"/><circle cx="37" cy="40" r="2.6"/><circle cx="53" cy="17" r="3.4"/></g></svg></div>
-        <div class="app-head"><span class="app-eyebrow">Commercial</span><span class="app-status">Soon</span></div>
+        <div class="app-head"><span class="app-eyebrow">Commercial</span><span class="app-status">Beta</span></div>
         <div class="app-emblem"><svg viewBox="4 4 56 50" width="100%" height="100%" fill="none"><path d="M11 44 L25 36 L37 40 L53 17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><circle cx="11" cy="44" r="3"/><circle cx="25" cy="36" r="3"/><circle cx="37" cy="40" r="3"/></g><circle cx="53" cy="17" r="5" fill="currentColor"/></svg></div>
         <div class="app-name">DalOS Commercial</div>
         <div class="app-tag">Claims, redirections, regional performance and lead generation.</div>
         <div class="app-chips"><span class="app-chip">Claims</span><span class="app-chip">Redirections</span><span class="app-chip">Regions</span><span class="app-chip">Voyages</span><span class="app-chip">Leads</span><span class="app-chip">Campaigns</span></div>
-        <div class="app-foot"><span class="soon-note"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.16em"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg> Coming soon</span></div>
+        <div class="app-foot"><span class="app-go">Open Commercial <b>→</b></span></div>
       </div>
       <div class="app-card app-landcloud" id="tileLandCloud">
         <div class="app-glow"></div><div class="app-sheen"></div>
@@ -643,8 +634,7 @@ function setAnalyticsTile(state){var t=$('tileAnalytics');if(!t)return;var LOCK=
 function applyAnalyticsState(){return sb.rpc('my_analytics_state').then(function(r){setAnalyticsTile((r&&!r.error&&r.data)?r.data:'none');}).catch(function(){setAnalyticsTile('none');});}function requestAnalyticsAccess(){var t=$('tileAnalytics');var foot=t.querySelector('.app-foot');if(foot)foot.innerHTML='<span class="app-go" style="opacity:.7">Requesting\u2026</span>';sb.auth.getSession().then(function(s){var tok=s&&s.data&&s.data.session&&s.data.session.access_token;fetch(DALOS_SUPABASE_URL+'/functions/v1/analytics-access-request',{method:'POST',headers:{'Content-Type':'application/json','apikey':DALOS_SUPABASE_ANON,'Authorization':'Bearer '+tok},body:JSON.stringify({base:location.origin+location.pathname.replace(/[^/]*$/,'')})}).then(function(res){return res.json();}).then(function(j){setAnalyticsTile(j&&j.status==='granted'?'granted':'pending');}).catch(function(){setAnalyticsTile('none');});});}
 /* Commercial tile — role-gated (client-side, cosmetic). Granted = open; else a locked
    tile with no request flow (CRM access is role-based, granted by an admin in Vision). */
-function setCommercialTile(state){var t=$('tileCommercial');if(!t)return;var LOCK='<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.16em"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>';var CLOCK='<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.16em"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>';t.setAttribute('data-state',state);t.classList.remove('is-locked','is-soon');var foot=t.querySelector('.app-foot');var status=t.querySelector('.app-status');var emblem=t.querySelector('.app-emblem');var ob=emblem?emblem.querySelector('.lock-badge'):null;if(ob)ob.remove();if(state==='soon'){t.classList.add('is-soon');t.style.cursor='default';if(foot)foot.innerHTML='<span class="soon-note">'+CLOCK+' Coming soon</span>';if(status)status.textContent='Soon';if(emblem){var bs=document.createElement('span');bs.className='lock-badge';bs.innerHTML=CLOCK;emblem.appendChild(bs);}}else if(state==='granted'){t.style.cursor='pointer';if(foot)foot.innerHTML='<span class="app-go">Open Commercial <b>→</b></span>';if(status)status.textContent='Beta';}else{t.classList.add('is-locked');t.style.cursor='default';if(foot)foot.innerHTML='<span style="display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:#aab3c0;padding:9px 2px">'+LOCK+' Restricted · ask an admin</span>';if(status)status.innerHTML='<span style="font-size:9px">'+LOCK+'</span> Locked';if(emblem){var bl=document.createElement('span');bl.className='lock-badge';bl.innerHTML=LOCK;emblem.appendChild(bl);}}}
-/* Commercial not yet live in prod — always render the dimmed "Soon" card (never navigates). */
+function setCommercialTile(state){var t=$('tileCommercial');if(!t)return;var LOCK='<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.16em"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>';t.setAttribute('data-state',state);t.classList.remove('is-locked');var foot=t.querySelector('.app-foot');var status=t.querySelector('.app-status');var emblem=t.querySelector('.app-emblem');var ob=emblem?emblem.querySelector('.lock-badge'):null;if(ob)ob.remove();if(state==='granted'){t.style.cursor='pointer';if(foot)foot.innerHTML='<span class="app-go">Open Commercial <b>→</b></span>';if(status)status.textContent='Beta';}else{t.classList.add('is-locked');t.style.cursor='default';if(foot)foot.innerHTML='<span style="display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:#aab3c0;padding:9px 2px">'+LOCK+' Restricted · ask an admin</span>';if(status)status.innerHTML='<span style="font-size:9px">'+LOCK+'</span> Locked';if(emblem){var bl=document.createElement('span');bl.className='lock-badge';bl.innerHTML=LOCK;emblem.appendChild(bl);}}}
 function applyCommercialState(u){setCommercialTile(COMMERCIAL_ROLES[(u&&u.role)||'']?'granted':'locked');}
 /* Land Cloud tile — role-gated (client-side, cosmetic). Granted = open; else a locked
    tile with no request flow (farm access is role-based, granted by an admin). */
